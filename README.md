@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
   # Revise PricePilot AI Vision
 
@@ -9,3 +10,7 @@
 
   Run `npm run dev` to start the development server.
   
+=======
+# zentrix-ai
+Zentrix AI – AI-powered purchase intelligence platform that compares products across Amazon, Myntra, Flipkart, Blinkit, Zepto and more before you buy.
+>>>>>>> 91a342cc2e12a654ae7259268449ae1a8a23c59b
