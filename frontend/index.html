@@ -1,0 +1,35 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Zentrix AI</title>
+      <script>
+        // This runs BEFORE React, BEFORE CSS — guarantees correct theme on first paint
+        (function() {
+          try {
+            // Migrate old key
+            var oldKey = localStorage.getItem('theme');
+            if (oldKey === 'dark' || oldKey === 'light') {
+              localStorage.setItem('zentrix-theme', oldKey);
+              localStorage.removeItem('theme');
+            }
+
+            var saved = localStorage.getItem('zentrix-theme');
+            var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            // Dark if: explicitly saved as dark, OR saved as 'system'/'null' (not forced light) AND system is dark
+            var isDark = saved === 'dark' || (saved !== 'light' && systemDark);
+
+            document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+          } catch (e) {}
+        })();
+      </script>
+    </head>
+
+    <body>
+      <div id="root"></div>
+      <script type="module" src="/src/main.tsx"></script>
+    </body>
+  </html>
+  
